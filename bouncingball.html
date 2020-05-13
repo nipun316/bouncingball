@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UFF-8">
+	<title>bouncing ball</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<canvas id="gameCanvas" width="200" height="200" style="border:2px solid black" onclick="bounce()" onload="obstacles(0,0)"  ></canvas>
+	<script type="text/javascript">
+		const FPS =30;
+		var bs=50;
+		var bx,by,oyv,oy;
+		var xv,yv;
+		var canvas ,context;
+		var ball;
+		var colors =["green","yellow","orange","red"]
+
+		canvas=document.getElementById('gameCanvas');
+		context=canvas.getContext("2d");
+
+		setInterval(update,1000/ FPS);
+		
+
+		
+
+		bx = canvas.width/2;
+		by= canvas.height/1.7;
+
+		xv = 0/ FPS;
+		yv =  20/FPS;
+		oyv = 200/FPS;
+		oy = 10;
+		ox=canvas.width/2;
+
+
+
+
+		function update(){
+			ourball();
+			obstacles(img,x,y,width,height,deg);
+			
+	
+
+		};
+		function ourball(){
+		    by+=yv;
+			context.fillStyle = "black";
+			context.fillRect(0,0,canvas.width,canvas.height);
+			context.beginPath();
+			context.arc(bx,by,20,0,2*Math.PI);
+			context.fillStyle = "blue";
+			context.fill();
+		
+		};
+		
+
+
+		function bounce()
+		{ 
+			by=by - 1500/FPS;
+
+		
+		};
+		var names=[];
+		
+
+		function store()
+		{
+		
+		names[0]=prompt("enter player name");
+		localStorage.setItem("names",JSON.stringify(names));
+		return false;
+
+	};
+
+		
+
+
+		
+
+
+
+	</script>
+<h3>HEY,hit bounce button to bounce ...<br> Try not to bounce your ball too high<br> and avoid hitting obstacles which are<br>not the color of your ball</h3>
+<form action="delta.html">
+
+<input  type="submit" value="GO!!!!!"  onclick="store();" >
+</form>
+
+
+
+</body>
+</html>
